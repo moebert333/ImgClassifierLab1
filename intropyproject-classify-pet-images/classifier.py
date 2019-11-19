@@ -1,3 +1,4 @@
+import os
 import ast
 from PIL import Image
 import torchvision.transforms as transforms
@@ -10,6 +11,9 @@ alexnet = models.alexnet(pretrained=True)
 vgg16 = models.vgg16(pretrained=True)
 
 models = {'resnet': resnet18, 'alexnet': alexnet, 'vgg': vgg16}
+
+print("Path at terminal when executing this file")
+print(os.getcwd() + "\n")
 
 # obtain ImageNet labels
 with open('imagenet1000_clsid_to_human.txt') as imagenet_classes_file:
