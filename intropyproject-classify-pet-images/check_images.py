@@ -5,7 +5,7 @@
 # TODO 0-X: Add your information below for Programmer & Date Created.                                                                             
 # PROGRAMMER: Morris Herbert
 # DATE CREATED: Nov 18, 2019                                 
-# REVISED DATE: 
+# REVISED DATE: Nov 19, 2019
 # PURPOSE: Classifies pet images using a pretrained CNN model, compares these
 #          classifications to the true identity of the pets in the images, and
 #          summarizes how well the CNN performed on the image classification task. 
@@ -115,6 +115,7 @@ def main():
     # and incorrectly classified breeds (if requested)
     print_results(results, results_stats, None, True, True)
     
+    # Test timing
     sleep(3.0)
 
     # TODO 0-X: Measure total program runtime by collecting end time
