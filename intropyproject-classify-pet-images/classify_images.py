@@ -66,10 +66,17 @@ def classify_images(images_dir, results_dic, model):
            None - results_dic is mutable data type so no return needed.         
     """
     #process each image
+    img_cnt = 0
+    print (f'Classifying images.', end='')
     for img_file, img_list in results_dic.items():
-        print (f'Processing image {img_file}...')
+        #progress output
+        img_cnt += 1
+        pct = int(img_cnt/len(results_dic)*100)
+        if pct % 10 == 0: print (f'.{pct}%', end='')
+        else: print ('.', end='')
+
         #classify the image
         image_classes = classifier(images_dir+img_file, model).strip().lower()
         #save results and compare to image type
         img_list.extend([image_classes, int(img_list[0] in image_classes)])
-
+    print ('.')
