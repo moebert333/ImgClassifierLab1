@@ -330,10 +330,12 @@ Pct Corr dog: 100.0 Pct Corr NOTdog:  90.0  Pct Corr Breed:  90.0
    pct_correct_breed:  90.0%
    pct_correct_label:  82.5%
 
-Misclassified Images:
-Real Breed:                      beagle   Classifier:  walker hound, walker foxhound
-Real Animal:                        cat   Classifier:   norwegian elkhound, elkhound
-Real Breed:            golden retriever   Classifier:                       leonberg
-Real Breed:              great pyrenees   Classifier:                         kuvasz
+Misclassified Dogs:
+  Real Animal:                        cat   Classifier:   norwegian elkhound, elkhound
 
-** Total Elapsed Runtime: 0:0:12
+Misclassified Breed:
+  Real Breed:                      beagle   Classifier:  walker hound, walker foxhound
+  Real Breed:            golden retriever   Classifier:                       leonberg
+  Real Breed:              great pyrenees   Classifier:                         kuvasz
+
+** Total Elapsed Runtime: 0:0:10

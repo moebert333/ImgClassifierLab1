@@ -72,7 +72,7 @@ Pct Corr dog:  50.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:  50.0
    pct_correct_breed:  50.0%
    pct_correct_label:  75.0%
 
-Misclassified Images:
-Real Animal:                        dog   Classifier: red wolf, maned wolf, canis rufus, canis niger
+Misclassified Dogs:
+  Real Animal:                        dog   Classifier: red wolf, maned wolf, canis rufus, canis niger
 
 ** Total Elapsed Runtime: 0:0:0

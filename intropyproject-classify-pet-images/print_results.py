@@ -81,12 +81,19 @@ def print_results(results_dic, results_stats_dic, model,
         results_stats_dic["n_correct_notdogs"] != results_stats_dic["n_images"]
     print_mis_breed = print_incorrect_breed and results_stats_dic["n_correct_dogs"] != results_stats_dic["n_correct_breed"]
 
-    # check if either is true so we only do one pass through results_dic
-    if print_mis_dogs or print_mis_breed:
-        print ('\nMisclassified Images:')
+    # misclassified dogs, iterate through results_dic and print each
+    if print_mis_dogs:
+        print ('\nMisclassified Dogs:')
         #process each image and print any misclassifications
         for val_list in results_dic.values():
-            if print_mis_dogs and sum(val_list[3:]) == 1:
-                print(f"{'Real Animal:':<12} {val_list[0]:>26}   Classifier: {val_list[1]:>30}")
-            if print_mis_breed and sum(val_list[3:]) == 2 and val_list[2] == 0:
-                print(f"{'Real Breed:':<12} {val_list[0]:>26}   Classifier: {val_list[1]:>30}")
+            if sum(val_list[3:]) == 1:
+                print(f"  {'Real Animal:':<12} {val_list[0]:>26}   Classifier: {val_list[1]:>30}")
+
+    # misclassified dogs, iterate through results_dic and print each
+    if print_mis_breed:
+        print ('\nMisclassified Breed:')
+        #process each image and print any misclassifications
+        for val_list in results_dic.values():
+            if sum(val_list[3:]) == 2 and val_list[2] == 0:
+                print(f"  {'Real Breed:':<12} {val_list[0]:>26}   Classifier: {val_list[1]:>30}")
+

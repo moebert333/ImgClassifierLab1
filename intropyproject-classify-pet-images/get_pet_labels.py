@@ -45,7 +45,7 @@ def get_pet_labels(image_dir):
     # Alternate approach using comprehension, works but skips "." and duplicate name detection
     # results_dic = {fileName: [fileName[:fileName.rfind('_')].replace('_', ' ').strip().lower()] for fileName in listdir(image_dir)}
 
-    # @Debug: limit to speed debugging, -1 not used
+    # @Debug: Note: limit to speed debugging, -1 not used
     limit = -1
 
     # process each file name and add to dict
@@ -62,9 +62,9 @@ def get_pet_labels(image_dir):
         else:
             print("** Warning: Duplicate files exist in directory:", fileName)
         
+        # @Debug: Limit process to speed debugging 
         limit = limit-1
         if limit == 0: break
-
 
     # Replace None with the results_dic dictionary that you created with this
     # function

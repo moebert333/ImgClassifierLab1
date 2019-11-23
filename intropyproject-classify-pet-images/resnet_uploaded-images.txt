@@ -72,4 +72,4 @@ Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed: 100.0
    pct_correct_breed: 100.0%
    pct_correct_label: 100.0%
 
-** Total Elapsed Runtime: 0:0:0
+** Total Elapsed Runtime: 0:0:1
