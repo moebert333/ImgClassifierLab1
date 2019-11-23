@@ -77,9 +77,9 @@ def adjust_results4_isadog(results_dic, dogfile):
             if not dog_line in dog_dict:
                 dog_dict[dog_line] = 1
 
-        # process each image string and check for matches in dog_dict  
-        for img_list in results_dic.values():
-            img_list.append(int(img_list[0] in dog_dict))
-            img_list.append(int(img_list[1] in dog_dict))
+    # process each image string and check for matches in dog_dict  
+    for img_list in results_dic.values():
+        img_list.append(int(img_list[0] in dog_dict))
+        img_list.append(int(img_list[1] in dog_dict))
 
     return

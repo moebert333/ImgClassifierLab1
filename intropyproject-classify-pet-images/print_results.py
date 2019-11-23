@@ -62,5 +62,31 @@ def print_results(results_dic, results_stats_dic, model,
     Returns:
            None - simply printing results.
     """    
-    None
-                
+
+    #print model name
+    print(f"\n\n*** Results Summary for CNN Model Architecture {model.upper()}***")
+
+    # print image counts
+    print(f"{'N Images':>20}: {results_stats_dic['n_images']:3d}")
+    print(f"{'N Dog Images':>20}: {results_stats_dic['n_dogs_img']:3d}")
+    print(f"{'N Not Dog Images':>20}: {results_stats_dic['n_notdogs_img']:3d}")
+        
+    # print percentage statistics
+    for stat, value in results_stats_dic.items():
+        if stat[0] == 'p':
+            print(f'{stat:>20}: {value:5.1f}%')
+    
+    # check if we have any misclassified dogs or breeds to print
+    print_mis_dogs = print_incorrect_dogs and results_stats_dic["n_correct_dogs"] + \
+        results_stats_dic["n_correct_notdogs"] != results_stats_dic["n_images"]
+    print_mis_breed = print_incorrect_breed and results_stats_dic["n_correct_dogs"] != results_stats_dic["n_correct_breed"]
+
+    # check if either is true so we only do one pass through results_dic
+    if print_mis_dogs or print_mis_breed:
+        print ('\nMisclassified Images:')
+        #process each image and print any misclassifications
+        for val_list in results_dic.values():
+            if print_mis_dogs and sum(val_list[3:]) == 1:
+                print(f"{'Real Animal:':<12} {val_list[0]:>26}   Classifier: {val_list[1]:>30}")
+            if print_mis_breed and sum(val_list[3:]) == 2 and val_list[2] == 0:
+                print(f"{'Real Breed:':<12} {val_list[0]:>26}   Classifier: {val_list[1]:>30}")

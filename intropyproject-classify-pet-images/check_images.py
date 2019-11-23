@@ -94,7 +94,7 @@ def main():
     check_classifying_labels_as_dogs(results)
 
 
-    # TODO 5: Define calculates_results_stats function within the file calculates_results_stats.py
+    # TODO 5-X: Define calculates_results_stats function within the file calculates_results_stats.py
     # This function creates the results statistics dictionary that contains a
     # summary of the results statistics (this includes counts & percentages). This
     # dictionary is returned from the function call as the variable results_stats    
@@ -106,18 +106,15 @@ def main():
     check_calculating_results(results, results_stats)
 
 
-    # TODO 6: Define print_results function within the file print_results.py
+    # TODO 6-X: Define print_results function within the file print_results.py
     # Once the print_results function has been defined replace 'None' 
     # in the function call with in_arg.arch  Once you have done the 
     # replacements your function call should look like this: 
     #      print_results(results, results_stats, in_arg.arch, True, True)
     # Prints summary results, incorrect classifications of dogs (if requested)
     # and incorrectly classified breeds (if requested)
-    print_results(results, results_stats, None, True, True)
+    print_results(results, results_stats, in_arg.arch, True, True)
     
-    # Test timing
-    sleep(3.0)
-
     # TODO 0-X: Measure total program runtime by collecting end time
     end_time = time()
     
@@ -126,8 +123,7 @@ def main():
     print("\n** Total Elapsed Runtime:",
           str(int((tot_time/3600)))+":"+str(int((tot_time%3600)/60))+":"
           +str(int((tot_time%3600)%60)) )
-    
-
+  
 # Call to main function to run the program
 if __name__ == "__main__":
     main()
