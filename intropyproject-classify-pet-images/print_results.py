@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/print_results.py
 #                                                                             
-# PROGRAMMER: 
-# DATE CREATED:
+# PROGRAMMER: Morris Herbert
+# DATE CREATED: Nov 22, 2019
 # REVISED DATE: 
 # PURPOSE: Create a function print_results that prints the results statistics
 #          from the results statistics dictionary (results_stats_dic). It 
@@ -62,5 +62,38 @@ def print_results(results_dic, results_stats_dic, model,
     Returns:
            None - simply printing results.
     """    
-    None
-                
+
+    #print model name
+    print(f"\n\n*** Results Summary for CNN Model Architecture {model.upper()}***")
+
+    # print image counts
+    print(f"{'N Images':>20}: {results_stats_dic['n_images']:3d}")
+    print(f"{'N Dog Images':>20}: {results_stats_dic['n_dogs_img']:3d}")
+    print(f"{'N Not Dog Images':>20}: {results_stats_dic['n_notdogs_img']:3d}")
+        
+    # print percentage statistics
+    for stat, value in results_stats_dic.items():
+        if stat[0] == 'p':
+            print(f'{stat:>20}: {value:5.1f}%')
+    
+    # check if we have any misclassified dogs or breeds to print
+    print_mis_dogs = print_incorrect_dogs and results_stats_dic["n_correct_dogs"] + \
+        results_stats_dic["n_correct_notdogs"] != results_stats_dic["n_images"]
+    print_mis_breed = print_incorrect_breed and results_stats_dic["n_correct_dogs"] != results_stats_dic["n_correct_breed"]
+
+    # misclassified dogs, iterate through results_dic and print each
+    if print_mis_dogs:
+        print ('\nMisclassified Dogs:')
+        #process each image and print any misclassifications
+        for val_list in results_dic.values():
+            if sum(val_list[3:]) == 1:
+                print(f"  {'Real Animal:':<12} {val_list[0]:>26}   Classifier: {val_list[1]:>30}")
+
+    # misclassified dogs, iterate through results_dic and print each
+    if print_mis_breed:
+        print ('\nMisclassified Breed:')
+        #process each image and print any misclassifications
+        for val_list in results_dic.values():
+            if sum(val_list[3:]) == 2 and val_list[2] == 0:
+                print(f"  {'Real Breed:':<12} {val_list[0]:>26}   Classifier: {val_list[1]:>30}")
+
