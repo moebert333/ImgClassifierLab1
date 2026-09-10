@@ -1,22 +1,31 @@
 import os
 import ast
+from pathlib import Path
 from PIL import Image
 import torchvision.transforms as transforms
 from torch.autograd import Variable
-import torchvision.models as models
+from torchvision.models import (
+    AlexNet_Weights,
+    ResNet18_Weights,
+    VGG16_Weights,
+    alexnet,
+    resnet18,
+    vgg16,
+)
 from torch import __version__
 
-resnet18 = models.resnet18(pretrained=True)
-alexnet = models.alexnet(pretrained=True)
-vgg16 = models.vgg16(pretrained=True)
+resnet_model = resnet18(weights=ResNet18_Weights.DEFAULT)
+alexnet_model = alexnet(weights=AlexNet_Weights.DEFAULT)
+vgg16_model = vgg16(weights=VGG16_Weights.DEFAULT)
 
-models = {'resnet': resnet18, 'alexnet': alexnet, 'vgg': vgg16}
+models = {'resnet': resnet_model, 'alexnet': alexnet_model, 'vgg': vgg16_model}
 
 print("Path at terminal when executing this file")
 print(os.getcwd() + "\n")
-
+#
 # obtain ImageNet labels
-with open('imagenet1000_clsid_to_human.txt') as imagenet_classes_file:
+project_dir = Path(__file__).resolve().parent
+with open(project_dir / 'imagenet1000_clsid_to_human.txt') as imagenet_classes_file:
     imagenet_classes_dict = ast.literal_eval(imagenet_classes_file.read())
 
 def classifier(img_path, model_name):

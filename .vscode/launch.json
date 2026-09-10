@@ -5,23 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Default Start",
-            "type": "python",
+            "name": "Python: Check Images",
+            "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/intropyproject-classify-pet-images/check_images.py",
-            "cwd": "${workspaceFolder}/intropyproject-classify-pet-images",
-            "args": [
-                "--dir", "pet_images",
-                "--arch", "vgg",
-                "--dogfile", "dognames.txt"
-            ],
-            "console": "integratedTerminal"
-        },
-        {
-            "name": "Python: Current File",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
             "cwd": "${workspaceFolder}/intropyproject-classify-pet-images",
             "args": [
                 "--dir", "pet_images",

@@ -1,5 +1,5 @@
 # needed to update numpy and torch version to fix errors
-numpy==1.15.0
-torch==0.4.1.post2
-Pillow==5.2.0
-torchvision==0.2.1
+numpy>=1.26,<3
+torch>=2.2,<3
+Pillow>=10,<13
+torchvision>=0.17,<1

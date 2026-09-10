@@ -16,6 +16,7 @@
 ##
 # Imports python modules
 import argparse
+from pathlib import Path
 
 # TODO 1: Define get_input_args function below please be certain to replace None
 #       in the return statement with parser.parse_args() parsed argument 
@@ -40,7 +41,8 @@ def get_input_args():
     """
     # Define Argument Parser object and optional arguments/defaults
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dir', type = str, default = 'pet_images/', 
+    project_dir = Path(__file__).resolve().parent
+    parser.add_argument('--dir', type = str, default = str(project_dir / 'pet_images'),
                     help = 'path to the folder of pet images')
     parser.add_argument('--arch', type = str, default = 'vgg', 
                     help = 'CNN model architecture')

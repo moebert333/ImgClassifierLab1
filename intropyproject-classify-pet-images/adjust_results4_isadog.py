@@ -38,6 +38,9 @@
 #       data type so no return is needed.
 # 
 
+from pathlib import Path
+
+
 def adjust_results4_isadog(results_dic, dogfile):
     """
     Adjusts the results dictionary to determine if classifier correctly 
@@ -71,7 +74,8 @@ def adjust_results4_isadog(results_dic, dogfile):
 
     # process each line in the dogname file and add to dog_dict
     dog_dict = {}
-    with open(dogfile, "r") as dog_file: 
+    project_dir = Path(__file__).resolve().parent
+    with open(project_dir / dogfile, "r") as dog_file: 
         for dog_line in dog_file.readlines():
             dog_line = dog_line.rstrip('\n').strip()
             if not dog_line in dog_dict:

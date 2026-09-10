@@ -39,6 +39,8 @@
 #       anything because the results_dic dictionary that is passed into the 
 #       function is a mutable data type so no return is needed.
 # 
+from pathlib import Path
+
 def adjust_results4_isadog(results_dic, dogfile):
     """
     Adjusts the results dictionary to determine if classifier correctly 
@@ -74,7 +76,8 @@ def adjust_results4_isadog(results_dic, dogfile):
     dognames_dic = dict()
 
     # Reads in dognames from file, 1 name per line & automatically closes file
-    with open(dogfile, "r") as infile:
+    project_dir = Path(__file__).resolve().parent
+    with open(project_dir / dogfile, "r") as infile:
         # Reads in dognames from first line in file
         line = infile.readline()
 
