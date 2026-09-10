@@ -23,7 +23,7 @@ models = {'resnet': resnet_model, 'alexnet': alexnet_model, 'vgg': vgg16_model}
 print("Path at terminal when executing this file")
 print(os.getcwd() + "\n")
 #
-# obtain ImageNet labels
+# obtain ImageNet labels here
 project_dir = Path(__file__).resolve().parent
 with open(project_dir / 'imagenet1000_clsid_to_human.txt') as imagenet_classes_file:
     imagenet_classes_dict = ast.literal_eval(imagenet_classes_file.read())
